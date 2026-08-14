@@ -1,23 +1,733 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "KGM 더 뉴 티볼리 (KGM The New Tivoli)",
+      "image": [
+        "https://tivoli.reliabledone.com/images/tivoli-main-2026.jpg"
+      ],
+      "description": "2026년형 KGM 더 뉴 티볼리 및 티볼리 에어의 트림별 공식 출시 가격과 최저가 견적 비교, 모바일 계산기 프로그램, 내돈내산 실제 후기 및 장단점 분석을 포함한 전문 구매 가이드입니다.",
+      "brand": {
+        "@type": "Brand",
+        "name": "KG Mobility (KGM)"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "url": "https://tivoli.reliabledone.com/tivoli-price-2026",
+        "priceCurrency": "KRW",
+        "lowPrice": "18900000",
+        "highPrice": "27000000",
+        "offerCount": "12"
+      }
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary-slate: #1e293b;
+            --primary-indigo: #4f46e5;
+            --secondary-teal: #0d9488;
+            --accent-coral: #e11d48;
+            --bg-canvas: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border-light: #e2e8f0;
+            --border-active: #cbd5e1;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        body { 
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+            line-height: 1.85; 
+            margin: 0; 
+            padding: 0; 
+            color: var(--text-main); 
+            background-color: var(--bg-canvas); 
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        header { 
+            background-color: var(--primary-slate); 
+            color: #ffffff; 
+            text-align: center; 
+            padding: 60px 20px; 
+            border-bottom: 4px solid var(--secondary-teal); 
+        }
+        
+        header h1 { 
+            font-size: 2.4em; 
+            margin: 0 0 15px 0; 
+            font-weight: 800; 
+            letter-spacing: -0.05em;
+            color: #ffffff;
+        }
+        
+        header p { 
+            font-size: 1.15em; 
+            font-weight: 400; 
+            max-width: 800px;
+            margin: 0 auto;
+            color: #cbd5e1;
+        }
+        
+        section { 
+            padding: 40px 20px; 
+            max-width: 1040px; 
+            margin: auto; 
+        }
+        
+        .content-card { 
+            background-color: var(--bg-card);
+            padding: 45px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+        }
+        
+        .cta-box { 
+            background-color: #f0fdfa; 
+            border: 1px solid #99f6e4;
+            padding: 30px; 
+            border-radius: 10px; 
+            margin: 35px 0; 
+            text-align: center; 
+        }
+        
+        .cta-btn { 
+            display: inline-block; 
+            padding: 14px 32px; 
+            background-color: var(--secondary-teal); 
+            color: #ffffff; 
+            font-size: 1.1em; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            transition: all 0.2s ease; 
+            border: none; 
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .cta-btn:hover { 
+            background-color: #0f766e; 
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        h2 { 
+            font-size: 1.75em; 
+            color: var(--primary-slate); 
+            border-left: 5px solid var(--primary-indigo); 
+            padding-left: 15px; 
+            margin-top: 50px; 
+            margin-bottom: 25px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+        
+        h3 { 
+            font-size: 1.35em; 
+            color: var(--primary-indigo); 
+            margin-top: 35px; 
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 22px;
+            text-align: justify;
+            color: #334155;
+        }
+        
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 30px 0; 
+            font-size: 0.95em; 
+            box-shadow: var(--shadow-sm);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        table th, table td { 
+            padding: 14px 16px; 
+            border: 1px solid var(--border-light); 
+        }
+        
+        table th { 
+            background-color: var(--primary-slate); 
+            color: #ffffff; 
+            font-weight: 600; 
+            text-align: center; 
+        }
+        
+        table tr:nth-child(even) { 
+            background-color: #f8fafc; 
+        }
+        
+        table td {
+            color: #334155;
+        }
+
+        /* Pure CSS Charts Styling */
+        .chart-container {
+            background-color: #f8fafc;
+            border: 1px solid var(--border-light);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 35px 0;
+        }
+
+        .chart-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--primary-slate);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .bar-group {
+            margin-bottom: 15px;
+        }
+
+        .bar-label {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bar-wrapper {
+            background-color: #e2e8f0;
+            border-radius: 6px;
+            height: 24px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            background-color: var(--primary-indigo);
+            height: 100%;
+            border-radius: 6px;
+            transition: width 1s ease-in-out;
+        }
+
+        .bar-fill.secondary {
+            background-color: var(--secondary-teal);
+        }
+
+        .bar-fill.accent {
+            background-color: var(--accent-coral);
+        }
+        
+        .input-group { 
+            background-color: #f1f5f9; 
+            padding: 30px; 
+            border-radius: 10px; 
+            margin-top: 35px; 
+            border: 1px solid var(--border-light);
+        }
+        
+        .input-group label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 600; 
+            color: var(--primary-slate); 
+        }
+        
+        .input-group input[type="text"], 
+        .input-group input[type="number"], 
+        .input-group select { 
+            width: 100%; 
+            padding: 12px; 
+            margin-bottom: 20px; 
+            border: 1px solid #cbd5e1; 
+            border-radius: 6px; 
+            box-sizing: border-box; 
+            font-size: 0.95em;
+            background-color: #ffffff;
+            color: var(--text-main);
+        }
+        
+        .input-group input:focus, 
+        .input-group select:focus {
+            outline: none;
+            border-color: var(--primary-indigo);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+        }
+
+        .result-box {
+            background-color: #eff6ff;
+            border: 1px dashed var(--primary-indigo);
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .result-box h4 {
+            margin-top: 0;
+            color: var(--primary-indigo);
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #dbeafe;
+            padding: 10px 0;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            font-weight: 600;
+            color: #1e40af;
+        }
+
+        .result-value {
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .opinion-text {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #dbeafe;
+            font-size: 0.95em;
+            color: #1e3a8a;
+            line-height: 1.7;
+        }
+
+        .external-links {
+            margin-top: 30px;
+        }
+
+        .external-links a { 
+            display: block; 
+            margin-bottom: 14px; 
+            color: var(--primary-indigo); 
+            text-decoration: none; 
+            font-weight: 600; 
+            padding: 15px; 
+            background-color: #f8fafc; 
+            border-radius: 8px; 
+            border: 1px solid var(--border-light);
+            transition: all 0.2s ease; 
+        }
+        
+        .external-links a:hover { 
+            background-color: var(--primary-indigo); 
+            color: #ffffff;
+            border-color: var(--primary-indigo);
+            transform: translateY(-1px);
+        }
+
+        footer { 
+            background-color: var(--primary-slate); 
+            color: #94a3b8; 
+            text-align: center; 
+            padding: 40px 20px; 
+            font-size: 0.9em; 
+            margin-top: 60px; 
+            border-top: 4px solid var(--secondary-teal);
+        }
+
+        footer p {
+            color: #94a3b8;
+            text-align: center;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>2026년형 티볼리 가격 및 트림별 견적 상세 가이드</h1>
+        <p>더 뉴 티볼리와 티볼리 에어의 공식 출시 금액부터 옵션 가격, 장단점 비교, 유지비 시뮬레이션까지 총망라한 전문 지침서입니다</p>
+    </header>
+
+    <section>
+        <div class="content-card">
+            
+            <div class="cta-box">
+                <p>KGM의 대표 소형 SUV, 티볼리 패밀리 구매를 고민하고 계십니까? 2026년 신차 구매 조건과 실시간 예상 견적을 즉각 계산하여 본인의 예산 한도에 알맞은 스마트한 자금 계획을 수립해 보십시오.</p>
+                <a href="#calculator-anchor" class="cta-btn">실시간 티볼리 가인수 비용 계산기 실행</a>
+            </div>
+
+            <h2>1. 2026년 소형 SUV 시장의 금융 동향과 티볼리 브랜드의 역할</h2>
+            <p>2026년 소형 SUV 세그먼트는 내연기관의 성숙도와 전동화 기조가 팽팽하게 대립하는 중요한 시기입니다. 글로벌 금융 환경의 기준금리 추이와 국내 할부 이율의 인상 여파 속에서, 차량 구매를 희망하는 예비 소비자가 지출해야 하는 실질 구매 비용 역시 과거에 비해 한층 복잡한 흐름을 보이고 있습니다. 이러한 상황에서 KG Mobility(KGM)의 티볼리 브랜드는 탄탄한 기본기와 압도적인 가성비를 앞세워 엔트리 컴팩트 SUV 시장을 지탱하고 있는 핵심 기둥으로 평가받습니다.</p>
+            <p>티볼리는 출시 이후 10년이 넘는 세월 동안 티볼리 1.6, 티볼리 아머, 베리 뉴 티볼리, 그리고 최근의 더 뉴 티볼리 및 티볼리 에어에 이르기까지 끊임없는 변화를 꾀해 왔습니다. 특히 고가 소형 SUV들의 평균 견적 금액이 3천만 원을 돌파한 2026년의 완성차 업계 판도 내에서, 비교적 저렴한곳 혹은 제일 싼곳을 선호하는 합리적인 성향의 패밀리 싱글 유저와 생애 첫차 오너들에게는 독보적인 대안이 되고 있습니다. 제조사가 제안하는 다양한 특별 가입 조건과 우대 금리 프로그램들을 명확히 파악하고 동급 차종과 일대일 비교를 거치는 것이 합리적인 자금 집행을 완성하는 첫걸음입니다.</p>
+
+            <h2>2. 2026년형 KGM 더 뉴 티볼리 및 티볼리 에어 트림별 공식 가격표</h2>
+            <p>현시점 국내 대리점에서 정식 출고 중인 더 뉴 티볼리는 크게 두 가지 엔진 사양과 다양한 세부 트림으로 구별됩니다. 주력 모델인 가솔린 1.5 터보 라인업과 경제성에 무게를 둔 가솔린 1.6 자연흡기 모델의 가격 편차는 트림 구성 및 적용 옵션의 유무에 따라 세분화됩니다. 각 종류마다 책정된 기본 금액과 상세 내역은 아래와 같습니다.</p>
+            
+            <h3>2.1. 더 뉴 티볼리 트림별 공식 판매 요금표</h3>
+            <p>소비자의 다양한 주행 패턴과 자금 사정에 대응하기 위해 KGM은 세련된 가성비 위주의 티볼리 V1, 실용성을 극대화한 티볼리 V3, 정제된 고급 사양이 포함된 티볼리 V5, 그리고 최상위 품격을 더한 티볼리 V7 트림을 제공합니다. 여기에 뛰어난 공간 활용도를 자랑하는 티볼리 업플러스 패키지 및 시그니처 익스테리어가 돋보이는 티볼리 R-Plus 라인업까지 포함되어 넓은 선택의 폭을 제공합니다.</p>
+
+            <table>
+                <caption>2026년형 KGM 더 뉴 티볼리 트림별 상세 가격 (개별소비세 기준가)</caption>
+                <thead>
+                    <tr>
+                        <th>모델 및 트림 구분</th>
+                        <th>파워트레인 사양</th>
+                        <th>공식 판매 가격 (원)</th>
+                        <th>주요 탑재 품목 및 특징</th>
+                        <th>추천 타겟</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>더 뉴 티볼리 V1 (깡통)</td>
+                        <td>가솔린 1.6 자연흡기</td>
+                        <td>18,900,000</td>
+                        <td>AISIN 6단 자동변속기, 16인치 스틸 휠, 수동 에어컨</td>
+                        <td>실속 중심의 최저가 출고 선호 고객</td>
+                    </tr>
+                    <tr>
+                        <td>더 뉴 티볼리 V3</td>
+                        <td>가솔린 1.6 자연흡기</td>
+                        <td>22,400,000</td>
+                        <td>8인치 스마트 미러링 패키지, 버튼시동, 인조가죽 시트</td>
+                        <td>적절한 타협점의 대중적 볼륨 모델</td>
+                    </tr>
+                    <tr>
+                        <td>더 뉴 티볼리 V5</td>
+                        <td>가솔린 1.5 터보</td>
+                        <td>24,300,000</td>
+                        <td>1.5 T-GDI 엔진(163마력), 17인치 알로이 휠, LED 헤드램프</td>
+                        <td>출력 부족 해소 및 준수한 옵션을 원하는 오너</td>
+                    </tr>
+                    <tr>
+                        <td>더 뉴 티볼리 V7</td>
+                        <td>가솔린 1.5 터보</td>
+                        <td>26,900,000</td>
+                        <td>9인치 HD 스마트 내비게이션, 18인치 블랙 휠, 딥 컨트롤 패키지</td>
+                        <td>주행 편의 및 최신 안전 보조 사양 풀옵션 지향</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>2.2. 티볼리 에어 트림별 공식 판매 요금표</h3>
+            <p>뒷좌석 적재 용량을 한층 증대시켜 소형 SUV 중 동급 최고 수준의 공간을 구현한 티볼리 에어는 일상 활용뿐만 아니라 캠핑 및 차박 마니아들에게 최적의 만족감을 줍니다. 기본 사양에 집중한 티볼리 에어 A1과 풍부한 옵션 혜택을 갖춘 티볼리 에어 A3로 일원화되어 판매됩니다. 티볼리 에어 1.5 터보 파워트레인을 기본으로 장착해 중량 증가 대비 시원시원한 가속 성능을 제공합니다.</p>
+
+            <table>
+                <caption>2026년형 KGM 티볼리 에어 상세 가격 (개별소비세 기준가)</caption>
+                <thead>
+                    <tr>
+                        <th>모델 및 트림 구분</th>
+                        <th>파워트레인 사양</th>
+                        <th>공식 판매 가격 (원)</th>
+                        <th>최대 적재 공간 및 특장점</th>
+                        <th>단점 및 구매 전 고려사항</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>티볼리 에어 A1</td>
+                        <td>가솔린 1.5 터보</td>
+                        <td>22,900,000</td>
+                        <td>기본 적재 용량 720L, 풀플랫 2열 시트, 가성비 구성</td>
+                        <td>수동 조절식 편의 사양 위주의 다소 아쉬운 깡통 감성</td>
+                    </tr>
+                    <tr>
+                        <td>티볼리 에어 A3</td>
+                        <td>가솔린 1.5 터보</td>
+                        <td>26,900,000</td>
+                        <td>18인치 다이아몬드 컷팅 휠, 9인치 HD 스크린, 듀얼존 풀오토 에어컨</td>
+                        <td>상위 차종인 토레스 엔트리 가격대와 중첩되는 한계</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>3. 경쟁 구도 시각화 및 시장성 분석</h2>
+            <p>2026년 컴팩트 SUV 세그먼트 내에서 티볼리가 경쟁하는 타 브랜드의 동급 차량들과의 실질적인 시작 가격 분포를 도식화한 결과입니다. 이를 통해 티볼리 브랜드가 가지고 있는 확실한 가격 경쟁력과 저렴한곳의 메리트를 직관적으로 비교할 수 있습니다.</p>
+
+            <div class="chart-container">
+                <div class="chart-title">2026년 주요 소형 SUV 시작 가격 비교 (단위: 만 원)</div>
+                
+                <div class="bar-group">
+                    <div class="bar-label">
+                        <span>KGM 더 뉴 티볼리 1.6</span>
+                        <span>1,890만 원</span>
+                    </div>
+                    <div class="bar-wrapper">
+                        <div class="bar-fill" style="width: 63%;"></div>
+                    </div>
+                </div>
+
+                <div class="bar-group">
+                    <div class="bar-label">
+                        <span>쉐보레 트랙스 크로스오버</span>
+                        <span>2,188만 원</span>
+                    </div>
+                    <div class="bar-wrapper">
+                        <div class="bar-fill secondary" style="width: 73%;"></div>
+                    </div>
+                </div>
+
+                <div class="bar-group">
+                    <div class="bar-label">
+                        <span>기아 셀토스 2.0 가솔린</span>
+                        <span>2,147만 원</span>
+                    </div>
+                    <div class="bar-wrapper">
+                        <div class="bar-fill secondary" style="width: 71%;"></div>
+                    </div>
+                </div>
+
+                <div class="bar-group">
+                    <div class="bar-label">
+                        <span>현대 코나 2.0 가솔린</span>
+                        <span>2,446만 원</span>
+                    </div>
+                    <div class="bar-wrapper">
+                        <div class="bar-fill accent" style="width: 81%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <h2>4. 티볼리 엔진별 사양 분석 및 유지비 요금제 차이점</h2>
+            <p>차량을 구매하는 과정에서 초기 출고 요금 못지않게 중요한 것은 연간 유지 및 운용에 수반되는 세금과 주유비 등의 예상 유지 비용입니다. 가솔린 1.6 엔진과 가솔린 1.5 터보 엔진은 배기량 및 터보차저 탑재 유무에 따른 연간 세제 기준과 티볼리 연비 등에서 명확한 차이점을 나타냅니다.</p>
+            <p>가솔린 1.6 자연흡기 모델의 경우 최고출력 126마력, 최대토크 15.8kg.m를 발휘하여 도심 주행에서 무난한 일상 구동 성능을 구현합니다. 배기량이 1,597cc로 계산되므로 지방세법에 근거한 연간 자동차세는 교육세를 합산하여 연간 약 29만 원 수준입니다. 반면 가솔린 1.5 터보 사양은 배기량 1,497cc로 자동차세가 연간 약 27만 원으로 살짝 낮아지지만, 최고출력 163마력에 최대토크 26.5kg.m를 내뿜는 강력한 성능을 갖추고 있습니다. 고속 항속 시 혹은 무거운 짐을 실었을 때의 추월 가속 측면에서 확실한 파워 차이를 경험할 수 있어 장거리 출퇴근 빈도가 높다면 1.5 터보 엔진을 탑재한 모델이 추천됩니다.</p>
+            <p>구형 세대에서 주로 탑재되었던 티볼리 디젤 파워트레인은 우수한 토크감과 연비를 무기로 큰 호응을 얻었으나, 최근 디젤 규제 강화와 친환경 전환 기조에 맞춰 단종되었습니다. 이에 따라 중고 시장을 중심으로만 거래되고 있습니다. 최근에는 연비 효율을 비약적으로 끌어올린 티볼리 하이브리드 탑재 가능성이나 친환경 모델인 티볼리 일렉트릭 전동화 버전 개발 여부가 자동차 포럼 및 뉴스 미디어 채널을 통해 수시로 제기되며 차세대 친환경 소형 플랫폼에 대한 대중의 높은 기대감을 확인시켜 주고 있습니다.</p>
+
+            <h2>5. 구매 방식별 실질 지출 분석: 장기렌트, 리스, 할부 장단점</h2>
+            <p>차량 대금을 완납하는 방법에 따라 일시불 납입과 더불어 매월 정해진 요금을 내는 장기렌트 및 리스 방식이 폭넓게 이용되고 있습니다. 구매 방식의 장단점과 실질 납부 요금은 개개인의 소득 구조 및 세무 환경에 따라 결과적 가치 차이가 극명하게 발생하므로 치밀한 분석이 필요합니다.</p>
+            
+            <div class="chart-container">
+                <div class="chart-title">신차 구매 방식별 장단점 및 적합군 비교</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>구매 형태</th>
+                            <th>핵심 장점</th>
+                            <th>핵심 단점</th>
+                            <th>적합한 운전자 유형</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>다이렉트 할부 신차 가입</td>
+                            <td>명의가 본인으로 귀속, 번호판 제한이 없음</td>
+                            <td>신용 대출 한도 축소 가능성, 매월 원리금 부담</td>
+                            <td>개인 신용도가 높고 장기 운행을 선호하는 개인</td>
+                        </tr>
+                        <tr>
+                            <td>티볼리 장기렌트</td>
+                            <td>세금 및 보험료 통합 요금, 취등록세 초기비용 면제</td>
+                            <td>하, 허, 호 하 번호판 사용 의무, 개인 보험 경력 단절</td>
+                            <td>초기 여유 자금이 부족한 초보 운전자 및 개인 사업자</td>
+                        </tr>
+                        <tr>
+                            <td>티볼리 리스</td>
+                            <td>일반 승용 번호판 유지, 경비 처리를 통한 세제 혜택</td>
+                            <td>연간 주행거리 약정 제한, 보험료 별도 가입 부담</td>
+                            <td>소득세율이 높아 높은 경비 처리가 요구되는 전문직 및 법인</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>장기렌트의 경우 대출이 아닌 임대 계약으로 취급되어 개인 신용 점수에 부정적인 영향을 전혀 미치지 않습니다. 종합보험 가입 이력이 렌트사 명의로 통일되므로 사고가 빈번하더라도 개인 요율 할증 등의 리스크가 차단되는 이점이 있습니다. 반대로 금융 리스의 경우 이용자 명의로 자동차 보험을 유지하기 때문에 운전 경력이 오래되어 무사고 할인 혜택을 극대화할 수 있는 베테랑 드라이버들에게 유리하게 작용합니다. 매달 납입하는 렌트 비용 혹은 리스 요금 속에는 차량의 감가상각과 세제상 혜택 등이 전부 반영되어 있으므로 일대일 전문 비대면 컨설팅 상담을 거쳐 자신에게 부합하는 유리한 제도를 매칭받는 것이 좋습니다.</p>
+
+            <h2>6. 주요 온라인 자동차 커뮤니티의 실감나는 내돈내산 장단점 분석</h2>
+            <p>신차 전시장에서 영업사원의 설명만 듣고 계약서에 서명을 하기 전에, 해당 차종을 직접 출고하여 일상 주행 및 장기 보존에 성공한 실오너들의 생생한 후기와 반응을 크로스 체크하는 것이 대단히 중요합니다. 국내에서 활성화된 디시인사이드(디시) 차갤, 보배드림 국산차 포럼, 에펨코리아(펨코) 및 에펨코리아 자동차 동호회 등의 실시간 피드백을 수집하여 정리해 드립니다.</p>
+            
+            <h3>6.1. 긍정적 측면 및 장점 요약</h3>
+            <p>오너들이 한목소리로 입증하는 핵심 메리트는 바로 경쟁력 있는 가격 대비 높은 구성 만족도입니다. 타 메이저 브랜드의 소형 SUV 풀옵션 가격이 3천만 원대 초반에서 중반까지 포진한 것에 비해, 더 뉴 티볼리 V7 및 티볼리 에어 A3 풀옵션을 구축하더라도 2천만 원대 후반으로 해결이 가능하다는 가성비가 제일로 손꼽힙니다. 또한 2026년 들어 소형 패밀리카로서 갖추어야 할 2열 리클라이닝 각도가 상당히 여유롭고 헤드룸 공간이 풍부하여 패밀리형 소형카로 사용 시 동승자들의 승차 거부감이 비교적 적다는 점 역시 내돈내산 후기 속 주요 장점으로 꼽힙니다. 티볼리 2WD와 4WD 트림 구분 선택 시 험로 탈출 및 겨울철 미끄러운 노면 제어 목적에 최적화된 서브 4WD 옵션의 만족감도 준수하다는 평입니다.</p>
+
+            <h3>6.2. 개선 요구 및 단점 요약</h3>
+            <p>그와 반대로 지적을 받고 있는 대표적인 아쉬움은 플랫폼의 연식 누적으로 인한 주행 감성의 경직성입니다. 섀시 세대교체가 완전히 이루어지지 않고 지속적인 페이스리프트 및 연식변경으로만 생명을 연장해온 태생적인 한계 때문에 고속 도로 장거리 주행 시 하부로부터 올라오는 로드 노이즈와 서스펜션 세팅의 딱딱함이 단점으로 지목됩니다. 또한 가솔린 1.5 터보 및 1.6 엔진 모두 시내 가감속 주행이 반복될 경우 실질 도심 연비가 8km/L 내외까지 덜컥 낮아진다는 지적이 있어 뛰어난 연비 효율을 희망하는 운전자들은 신중하게 저울질해 볼 필요가 있습니다. KGM 브랜드 인프라 특성상 시중 수입차 브랜드 대비 부품 가격 상승 및 수리 편의성 등에서 정비 센터와의 접근성을 따져보고 유지해야 한다는 의견도 보배드림 게시판 등에서 단골 이슈로 올라옵니다.</p>
+
+            <h2 id="calculator-anchor">7. 2026 티볼리 다이렉트 신차 예상 인수금액 실시간 자가 계산기</h2>
+            <p>아래 자가 진단 계산 도구는 2026년 기준 공시된 세법상 취등록세율(일반 승용 자가용 등록 기준 7%)과 채권 요율, 그리고 선택 항목의 옵션 합계를 바탕으로 구성된 실시간 모의 견적 시스템입니다. 차량 등급 및 구매 방식과 예상되는 추가 세부 옵션 가격을 대입하여 전체적인 월 납입금을 설계해 보시기 바랍니다.</p>
+            
+            <div class="input-group">
+                <h3>구매 조건 및 차량 옵션 입력</h3>
+                <form id="tivoliCalcForm" onsubmit="calculateTivoli(event);">
+                    
+                    <label for="car-model">1. 구매를 희망하는 티볼리 세부 트림 모델 선택</label>
+                    <select id="car-model" name="car-model" required>
+                        <option value="">-- 모델 및 등급을 고르십시오 --</option>
+                        <option value="1890">더 뉴 티볼리 V1 가솔린 1.6 (1,890만 원)</option>
+                        <option value="2240">더 뉴 티볼리 V3 가솔린 1.6 (2,240만 원)</option>
+                        <option value="2430">더 뉴 티볼리 V5 가솔린 1.5T (2,430만 원)</option>
+                        <option value="2690">더 뉴 티볼리 V7 가솔린 1.5T (2,690만 원)</option>
+                        <option value="2290">티볼리 에어 A1 가솔린 1.5T (2,290만 원)</option>
+                        <option value="2690">티볼리 에어 A3 가솔린 1.5T (2,690만 원)</option>
+                    </select>
+
+                    <label for="purchase-method">2. 차량 구매/이용 방식 선택</label>
+                    <select id="purchase-method" name="purchase-method" required>
+                        <option value="cash">전액 현금 일시불 및 일부 카드 캐시백</option>
+                        <option value="installment">일반 캐피탈 다이렉트 할부 금융</option>
+                        <option value="rent">다이렉트 무심사 장기렌트 가입</option>
+                        <option value="lease">세제 혜택 집중형 개인/법인 운용 리스</option>
+                    </select>
+
+                    <label for="option-price">3. 임의 추가 옵션 금액 입력 (단위: 만 원)</label>
+                    <input type="number" id="option-price" name="option-price" min="0" max="800" placeholder="예: 9인치 내비 + 딥컨트롤 패키지 추가 시 180" required>
+
+                    <label for="interest-rate">4. 할부 또는 리스 이용 시 대입 이자율 (단위: %)</label>
+                    <input type="number" id="interest-rate" name="interest-rate" min="1.0" max="15.0" step="0.1" placeholder="예: 연평균 할부 금리 5.5" required>
+
+                    <label for="installment-month">5. 납부 기간 선택 (할부 및 임대 개월 수)</label>
+                    <select id="installment-month" name="installment-month" required>
+                        <option value="36">36개월 약정</option>
+                        <option value="48">48개월 약정</option>
+                        <option value="60">60개월 우대 약정</option>
+                    </select>
+
+                    <button type="submit" class="cta-btn" style="width: 100%; margin-top: 10px;">티볼리 최종 예상 세금 및 월 할부 수수료 산출하기</button>
+                </form>
+
+                <div id="calcResultDisplay" class="result-box">
+                    <h4>모의 신차 견적서 분석 결과</h4>
+                    <div class="result-item">
+                        <span class="result-label">선택 차량 기본 판매가</span>
+                        <span id="resBasePrice" class="result-value">0 원</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">추가 선택 옵션 금액</span>
+                        <span id="resOptionPrice" class="result-value">0 원</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">인도 시점 취등록세 및 부대비용 (약 7%)</span>
+                        <span id="resTaxPrice" class="result-value">0 원</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">총 소요 차량 인도 비용 (현금 완납 기준)</span>
+                        <span id="resTotalPrice" class="result-value">0 원</span>
+                    </div>
+                    <div class="result-item" style="border-top: 2px solid #93c5fd; padding-top: 15px; margin-top: 5px;">
+                        <span class="result-label" style="color: #1d4ed8; font-size: 1.05em;">매월 분할 균등 상환 및 요금 납입액</span>
+                        <span id="resMonthlyPay" class="result-value" style="color: var(--accent-coral); font-size: 1.15em;">0 원</span>
+                    </div>
+                    <div id="resOpinionText" class="opinion-text"></div>
+                </div>
+            </div>
+
+            <h2>8. 오프라인 비공식 할인 좌표 및 온라인 신차 견적 성지 탐색 기술</h2>
+            <p>정찰제로 운영되는 국내 완성차 영업의 특성에도 불구하고, 소비자가 신규 계약을 진행할 때 딜러를 통하여 받게 되는 캐시백이나 비공식 서비스 사은품의 격차는 여전히 크게 벌어지고 있습니다. 조금이라도 싼곳과 풍족한 보상이 지원되는 매장 위치를 일명 좌표 혹은 신차 출고 성지라는 은어로 부르며 정보를 찾아 나서는 이유가 여기에 있습니다.</p>
+            <p>일반적으로 전국의 공식 직영 전시장보다는 복수의 브랜드 차량을 통합 대행하여 대량 유통하는 인터넷 에이전시나 오프라인 연계 법인 업체를 이용하면 일시적으로 진행되는 금융사 오토캐시백 현금지원 및 모바일 주유 상품권 추가 지급 등 특수 이벤트 혜택을 챙기기 수월합니다. 특히 비대면 조건으로 상담 및 가입을 신청할 수 있는 다이렉트 온라인 플랫폼을 거치면 영업사원의 중간 수수료나 무리한 금융 상품 가입 강요 등의 폐해를 효과적으로 사전 예방할 수 있어 젊은 예비 오너들 사이에서 호응을 얻고 있습니다.</p>
+
+            <h2>9. AI 혁신 시대의 스마트 견적 탐색과 디지털 채널의 교차 활용 방법</h2>
+            <p>과거에는 신차 할인 소식이나 프로모션 정보를 얻기 위해 여러 군데의 오프라인 딜러숍을 발품 팔며 전전해야만 했습니다. 하지만 2026년 첨단 인공지능이 생활 전반에 녹아든 현재의 IT 환경 하에서는 정보를 찾아내는 기술적 차원이 진보하였습니다. 영리한 소비자들은 단순한 인터넷 키워드 기반 포털 검색 영역을 조화롭게 뛰어넘어, 방대한 크롤러 정보를 실시간 종합 분석하는 오픈AI의 챗지피티 혹은 구글의 제미나이 서비스를 적극적으로 활용하고 있습니다.</p>
+            <p>예를 들어 "2026년 2분기 기준 KGM 티볼리 1.5 터보 트림의 최대 금융사 오토캐시백 연계 이율과 할인 성지 평균 좌표를 어디에서 얻는 것이 가장 안전한가?" 혹은 "장기렌트 계약 연장 시 카카오톡과 토스 앱 비대면 연계 플랫폼들의 장단점 요금을 어떻게 연산해야 하는가?" 등을 질문하여 신뢰성 있고 축적된 원천 소스를 챗지피티와 제미나이 등 AI 대화형 엔진으로부터 수 초 이내에 실시간 추천 리스트로 도출하고 있습니다.</p>
+            <p>이와 동시에 인스타그램, 페이스북, 트위터 같은 소셜 미디어 플랫폼 상에 업데이트되는 공식 딜러사들의 한정판 재고차 할인 피드, 유튜브를 통해 배포되는 티볼리 시승 운용 내돈내산 장단점 분석 영상, 그리고 실시간 텔레그램 프로모션 공지 채널 등을 입체적으로 종합 비교 대입해 봄으로써 오프라인 중심의 허위 매물 피해를 완전 차단하는 현명한 지식 정보 생태계를 스스로 창출해 내고 있습니다.</p>
+
+            <h2>10. 공인된 공식 외부 사이트 및 자동차 제조사 정보 채널 안내</h2>
+            <p>KGM 티볼리 차량 가격 변동 이슈, 정부 지원금 인하율 발표, 공식 결함 여부에 관한 보도와 금융 상환 지침은 사설 브로커의 정제되지 않은 의견 대신 공신력 있는 당국 및 공공 플랫폼 정보를 통해 직접 검토하시는 것이 최상의 선택입니다. 금융사기 등의 간접적 피해 방지를 위하여 오직 아래의 보장된 공식 외부 링크를 거쳐 최후 의사 결정을 정립해 나가시기를 지향합니다.</p>
+            
+            <div class="external-links">
+                <a href="https://directrcheckw.koreahankang.com" target="_blank">티볼리 종합 파이낸셜 상담 센터 (reliabledone 서브도메인 신차 출고 비교 본부)</a>
+                <a href="https://namu.wiki/w/KGM%20%ED%8B%B0%EB%B3%BC%EB%A6%AC" target="_blank">나무위키 – KGM 티볼리 모델 정의 및 연식 변경 역사 정보</a>
+                <a href="https://www.kg-mobility.com" target="_blank">KGM KG모빌리티 공식 홈페이지 – 정식 신차 카탈로그 및 대리점 찾기</a>
+            </div>
+
+            <div class="cta-box" style="margin-top: 50px;">
+                <h3>합리적인 스마트 소형 SUV 설계의 완수</h3>
+                <p>티볼리 패밀리를 맞이하는 계약서 체결 전에 당사가 구축한 실시간 가자가 계산기를 이용하여 최적화된 자금 플랜을 재정비하고 불필요하게 누출되는 지출을 최소화하시기 바랍니다.</p>
+                <a href="#tivoliCalcForm" class="cta-btn">자가 정보 수정 및 견적 다시 연산하기</a>
+            </div>
+            
+        </div>
+    </section>
+
+  
+
+    <script>
+        function calculateTivoli(event) {
+            event.preventDefault();
+            
+            var basePriceVal = parseFloat(document.getElementById('car-model').value) || 0;
+            var purchaseMethod = document.getElementById('purchase-method').value;
+            var optionPriceVal = parseFloat(document.getElementById('option-price').value) || 0;
+            var interestRateVal = parseFloat(document.getElementById('interest-rate').value) || 0;
+            var durationMonths = parseInt(document.getElementById('installment-month').value) || 36;
+
+            var resultBox = document.getElementById('calcResultDisplay');
+            var resBase = document.getElementById('resBasePrice');
+            var resOption = document.getElementById('resOptionPrice');
+            var resTax = document.getElementById('resTaxPrice');
+            var resTotal = document.getElementById('resTotalPrice');
+            var resMonthly = document.getElementById('resMonthlyPay');
+            var resOpinion = document.getElementById('resOpinionText');
+
+            resultBox.style.display = 'block';
+
+            // 기본 차량 및 옵션 금액 산정
+            var basePriceWon = basePriceVal * 10000;
+            var optionPriceWon = optionPriceVal * 10000;
+            var carAndOptionSum = basePriceWon + optionPriceWon;
+
+            // 취등록세 계산 (다이렉트 현금, 할부 구매 시 승용차 기준 7% 적용, 장기렌트/리스의 경우 대여 비용 내 포함되므로 0원으로 표기 가능하나 소요비 분석을 위해 현금할부에만 표시)
+            var taxRate = 0.07;
+            var calculatedTax = 0;
+            if (purchaseMethod === 'cash' || purchaseMethod === 'installment') {
+                calculatedTax = Math.round(carAndOptionSum * taxRate);
+            }
+
+            var totalAcquisitionCost = carAndOptionSum + calculatedTax;
+
+            // 매월 납부 균등액 연산 로직 (할부 이자 계산법 적용 - 원리금 균등 방식 간이 대입)
+            var monthlyPayment = 0;
+            var opinionTextStr = "";
+
+            if (purchaseMethod === 'cash') {
+                monthlyPayment = 0;
+                opinionTextStr = "귀하께서는 전액 현금 일시불 기반의 구매 방식을 선택하셨습니다. 매칭 카드사 오토캐시백을 경유하시면 평균 약 1.0%에서 1.5% 수준의 현금지원을 돌려받을 수 있어 일시불 구매야말로 비용을 제일 절약할 수 있는 싼곳 찾는 최적화된 방법입니다.";
+            } else if (purchaseMethod === 'installment') {
+                // 할부 이자 공식: R = (P * r * (1 + r)^n) / ((1 + r)^n - 1)
+                var monthlyInterestRate = (interestRateVal / 100) / 12;
+                var totalInstallmentAmount = carAndOptionSum; // 취등록세는 초기 선납하는 일반 구조로 가정
+                
+                if (monthlyInterestRate > 0) {
+                    var powVal = Math.pow(1 + monthlyInterestRate, durationMonths);
+                    monthlyPayment = Math.round((totalInstallmentAmount * monthlyInterestRate * powVal) / (powVal - 1));
+                } else {
+                    monthlyPayment = Math.round(totalInstallmentAmount / durationMonths);
+                }
+                opinionTextStr = "선택하신 " + durationMonths + "개월 일반 다이렉트 할부의 월 납부 예상액입니다. 제1금융권 오토론 우대 프로모션 할인 요건을 가입 전 반드시 고객센터를 통해 조율하시면 불필요한 고금리 수수료 요금 부담을 완화해 줄 수 있어 강력 추천합니다.";
+            } else if (purchaseMethod === 'rent') {
+                // 장기렌트 가상 표준 산출 (기본 차량가의 약 1.8% 수준에서 기간에 따른 감가율 적용)
+                var rentalFactor = 0.021 - (durationMonths * 0.0001);
+                monthlyPayment = Math.round(carAndOptionSum * rentalFactor);
+                opinionTextStr = "무심사 장기렌트 이용 시 취등록세와 매년 부과되는 대인 대물 자동차 보험료, 그리고 자동차 세제 혜택이 상기 표시된 월 대여료에 전부 포함되어 청구됩니다. 사업자 종합소득세 감면이나 다이렉트 무사고 이력이 부족한 초보 운전자 오너들에게 우수성이 돋보이는 상품입니다.";
+            } else if (purchaseMethod === 'lease') {
+                // 리스 가상 표준 산출 (기본 차량가의 약 1.95% 기준 대입)
+                var leaseFactor = 0.0195 - (durationMonths * 0.00008);
+                monthlyPayment = Math.round(carAndOptionSum * leaseFactor);
+                opinionTextStr = "운용 리스 방식을 통해 일반 자가용 전용 번호판 품격을 지켜내면서 월 단위 법인 및 개인사업자 필요 경비 처리를 꾀하실 수 있습니다. 리스 만기 연한 도달 시 차량 인수를 위한 잔존가치 비용 및 위약금 등의 옵션 약정을 가입하기 전에 필히 꼼꼼하게 따져보고 신청하는 법을 지향하셔야 합니다.";
+            }
+
+            // 화면 표시 전환
+            resBase.innerText = basePriceWon.toLocaleString() + " 원";
+            resOption.innerText = optionPriceWon.toLocaleString() + " 원";
+            resTax.innerText = calculatedTax.toLocaleString() + " 원";
+            resTotal.innerText = totalAcquisitionCost.toLocaleString() + " 원";
+            
+            if (monthlyPayment > 0) {
+                resMonthly.innerText = "매월 약 " + monthlyPayment.toLocaleString() + " 원";
+            } else {
+                resMonthly.innerText = "일시불 인수 (매월 납입금 없음)";
+            }
+            
+            resOpinion.innerText = opinionTextStr;
+        }
+    </script>
+  
